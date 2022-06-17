@@ -3,7 +3,7 @@ import { View, Text, PermissionsAndroid } from "react-native";
 import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Geolocation from "react-native-geolocation-service";
+import { TailwindProvider } from "tailwindcss-react-native";
 const algeria = {
   latitude: 28.0339,
   longitude: 1.6596,
@@ -12,36 +12,7 @@ const algeria = {
 };
 function HomeScreen() {
   const [data, setData] = useState({ region: algeria });
-  // const mapView = useRef(null);
-  // async function getCurrentLocation() {
-  //   Geolocation.getCurrentLocation(
-  //     (position) => {
-  //       alert("test");
-  //       const region = {
-  //         latitude: parseFloat(position.coords.latitude),
-  //         longitude: parseFloat(position.coords.longitude),
-  //         latitudeDelta: 5,
-  //         longitudeDelta: 5,
-  //       };
-  //       setData({
-  //         initialRegion: region,
-  //       });
-  //     },
-  //     (error) => alert(error),
-  //     {
-  //       enableHighAccuracy: true,
-  //       timeout: 100,
-  //       maximumAge: 1000,
-  //     }
-  //   );
-  // }
-  // useEffect(() => {
-  //   getCurrentLocation();
-  // }, []);
-  // function goToInitialLocation() {
-  //   const initialRegion = data.initialRegion;
-  //   mapView.current.animateToRegion(initialRegion, 2000);
-  // }
+
   return (
     <View
       style={{
@@ -54,15 +25,14 @@ function HomeScreen() {
     >
       <MapView
         followUserLocation={true}
-        initialRegion={data.region}
+        region={data.region}
+        initialRegion={algeria}
         showsUserLocation={true}
         style={{
           width: "100%",
           height: "100%",
         }}
-        // ref={(ref) => (mapView.current = ref)}
         zoomEnabled={true}
-        // onMapReady={() => goToInitialLocation()}
       >
         <Marker
           coordinate={{
@@ -77,7 +47,7 @@ function HomeScreen() {
             longitude: 3.0588,
           }}
         >
-          <Text>bouraoui</Text>
+          <Text className="text-3xl">bouraoui</Text>
         </Marker>
       </MapView>
     </View>
@@ -88,10 +58,12 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Map" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <TailwindProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Map" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TailwindProvider>
   );
 }

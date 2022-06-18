@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
-import PhotosEvent from "./components/PhotosEvent";
+import AvisPlace from "./components/AvisPlace";
+import PhotosPlace from "./components/PhotosPlace";
 
 export default function App() {
   return (
     <TailwindProvider>
-      <PhotosEvent />
+      <AvisPlace />
     </TailwindProvider>
   );
 }

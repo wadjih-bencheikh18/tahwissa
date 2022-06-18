@@ -7,7 +7,7 @@ export default function PhotosEvent() {
   const pics = [mkm2, mkm3];
   return (
     <View className="h-full">
-      <Text className="p-20 border-b-2">Description kda kda...</Text>
+      <Text className="p-20 border-b">Description kda kda...</Text>
 
       {/* scrollzone */}
       <ScrollView className="mx-4">

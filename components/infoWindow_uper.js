@@ -20,17 +20,17 @@ function WindowInfo (){
         keyboardShouldPersistTaps='handled'
          >
         <View style={{marginTop:40, flexDirection:'row', alignItems: 'center',justifyContent: 'space-between'}}>
-            <Image source={require('./assets/arrowDOWN.png')}/>
+            <Image source={require('../images/arrowDOWN.png')}/>
             <View style={styles.icon}>
-                <Image style={{marginRight:15}} source={require('./assets/Vector.png')}/>
-                <Image style={{width:20,height:18}} source={require('./assets/heart.png')}/>
+                <Image style={{marginRight:15}} source={require('../images/Vector.png')}/>
+                <Image style={{width:20,height:18}} source={require('../images/heart.png')}/>
             </View>
         </View>
 
         <View style={styles.infobloc}>
                 <Text style={styles.title}>Monument des Martyrs</Text>
                 <View style={styles.itembloc}>
-                    <Image  source={require('./assets/pic.png')}/>
+                    <Image  source={require('../images/pic.png')}/>
                     <Text style={styles.subTitle1}>Monument national - historique</Text>
                     <View elevation={5} style={styles.button}>
                         <Text style={{fontSize:12,color:'#FFFFFF',fontFamily:'Sen',}} >Directions</Text>
@@ -38,22 +38,22 @@ function WindowInfo (){
                 </View>
                 <View style={{flexDirection:'row', alignItems: 'center',justifyContent: 'space-between',marginTop:10}}>
                     <View style={styles.item}>
-                        <Image style={{marginRight:5}} source={require('./assets/adress.png')}/>
+                        <Image style={{marginRight:5}} source={require('../images/adress.png')}/>
                         <Text style={styles.subTitle}>El Madania, Algiers</Text>
                     </View>
                     <View style={styles.item}>
-                        <Image style={{marginRight:5}} source={require('./assets/star.png')}/>
+                        <Image style={{marginRight:5}} source={require('../images/star.png')}/>
                         <Text style={styles.subTitle2}>4.5</Text>
                     </View>
                 </View>
                 <Pressable onPress={handlePress}><View style={styles.horaire}>
                 <View style={styles.item}>
-                        <Image style={{marginRight:5}} source={require('./assets/time.png')}/>
+                        <Image style={{marginRight:5}} source={require('../images/time.png')}/>
                         {!isShown &&(<HoraireJour/>)}
                         {isShown &&(<Text style={{fontSize:12,color:'#000000',fontFamily:'Sen',}}>Les horaires d'ouverture</Text>)}
                 </View>
-                       {!isShown &&(<Image style={{width:12,height:7}} source={require('./assets/arrowDOWN.png')}/>) } 
-                       {isShown &&(<Image style={{width:12,height:7}} source={require('./assets/arrowUP.png')}/>) }     
+                       {!isShown &&(<Image style={{width:12,height:7}} source={require('../images/arrowDOWN.png')}/>) } 
+                       {isShown &&(<Image style={{width:12,height:7}} source={require('../images/arrowUP.png')}/>) }     
                 </View>    
                 </Pressable> 
                 {isShown && <ShowHoraire1/>}    

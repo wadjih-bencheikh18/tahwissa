@@ -10,7 +10,7 @@ export default function PhotosEvent() {
       <Text className="p-20 border-b">Description kda kda...</Text>
 
       {/* scrollzone */}
-      <ScrollView className="mx-4">
+      <ScrollView className="px-4">
         {/* pics */}
         <View className="pb-8">
           {/* one line (3pics) */}

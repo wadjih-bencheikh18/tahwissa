@@ -21,7 +21,7 @@ export default function AvisPlace() {
     },
   ]);
   const [comment, setComment] = useState("");
-  const [thumb, setThumb] = useState("");
+  // const [thumb, setThumb] = useState("");
   const [rate, setRate] = useState(0);
   const sType = [
     { type: "feather", opacity: 0.4 },
@@ -58,13 +58,13 @@ export default function AvisPlace() {
             <View className="flex flex-row space-x-8">
               <View className="flex flex-row items-end gap-x-1 pt-4">
                 <Pressable
-                  onPress={() =>
-                    setComments((comments) => {
-                      comments[key].like++;
-                      alert(comments[key].like);
-                      return comments;
-                    })
-                  }
+                // onPress={() =>
+                //   setComments((comments) => {
+                //     comments[key].like++;
+                //     alert(comments[key].like);
+                //     return comments;
+                //   })
+                // }
                 >
                   <Icon
                     name="thumb-up-off-alt"

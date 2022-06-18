@@ -1,6 +1,6 @@
 import Start from "./Start";
 import Map from "./Map";
-import { Image, Text, TextInput, View } from "react-native";
+import { Image, Text, TextInput, View, Botton, Button } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-ico";
 import MAPB from "../images/MAPB.png";
@@ -63,13 +63,22 @@ export default function Home() {
           <View className="bg-white mx-[5%] h-14 flex justify-between shadow-xl flex-row items-center px-10 w-[90%] border-3 rounded-[100px] mt-14 absolute">
             <TextInput
               placeholder="Rechercher ou filter..."
-              className=" -ml-5 w-[97%] caret-red-500"
+              className=" -ml-5 w-[97%]"
+              onChangeText={setComment}
+              value={comment}
             ></TextInput>
-            <Image
-              className="ml-4"
-              source={PDP}
-              style={{ width: 40, height: 40 }}
-            />
+            <Button
+              onPress={({ value }) => {
+                setComments((comments) => [...comments, comment]);
+                setComment("");
+              }}
+            >
+              <Image
+                className="ml-4"
+                source={PDP}
+                style={{ width: 40, height: 40 }}
+              />
+            </Button>
           </View>
         ),
       })}

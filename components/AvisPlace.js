@@ -29,43 +29,45 @@ export default function AvisPlace() {
 
   return (
     <View className="h-full">
-      <ScrollView className="mx-4">
-        {comments.map((comment, key) => (
-          <View
-            key={key}
-            className="bg-violet-50 mx-2 rounded-xl mt-4 px-5 py-3"
-          >
-            <View className="flex flex-row items-center justify-between pb-2">
-              <Text className="text-base">{comment.user}</Text>
-              <Text className="text-sm text-right text-violet-400">
-                {comment.date}
-              </Text>
-            </View>
-            <Text className="text-gray-500">{comment.text}</Text>
-            {/* icons */}
-            <View className="flex flex-row space-x-8">
-              <View className="flex flex-row items-end gap-x-1 pt-4">
-                <Icon
-                  name="thumbs-up"
-                  type="feather"
-                  size={20}
-                  color="rgb(107, 114, 128)"
-                />
-                <Text className="text-gray-500">{comment.like}</Text>
+      <ScrollView className="px-4">
+        <View className="pb-4">
+          {comments.map((comment, key) => (
+            <View
+              key={key}
+              className="bg-violet-50 mx-2 rounded-xl mt-4 px-5 py-3"
+            >
+              <View className="flex flex-row items-center justify-between pb-2">
+                <Text className="text-base">{comment.user}</Text>
+                <Text className="text-sm text-right text-violet-400">
+                  {comment.date}
+                </Text>
               </View>
-              <View className="flex flex-row items-end gap-x-1 pt-4">
-                <Icon
-                  name="thumbs-down"
-                  type="feather"
-                  size={20}
-                  color="rgb(107, 114, 128)"
-                  style={{ transform: [{ scaleX: -1 }] }}
-                />
-                <Text className="text-gray-500">{comment.dislike}</Text>
+              <Text className="text-gray-500">{comment.text}</Text>
+              {/* icons */}
+              <View className="flex flex-row space-x-8">
+                <View className="flex flex-row items-end gap-x-1 pt-4">
+                  <Icon
+                    name="thumbs-up"
+                    type="feather"
+                    size={20}
+                    color="rgb(107, 114, 128)"
+                  />
+                  <Text className="text-gray-500">{comment.like}</Text>
+                </View>
+                <View className="flex flex-row items-end gap-x-1 pt-4">
+                  <Icon
+                    name="thumbs-down"
+                    type="feather"
+                    size={20}
+                    color="rgb(107, 114, 128)"
+                    style={{ transform: [{ scaleX: -1 }] }}
+                  />
+                  <Text className="text-gray-500">{comment.dislike}</Text>
+                </View>
               </View>
             </View>
-          </View>
-        ))}
+          ))}
+        </View>
       </ScrollView>
       <View className="border-t px-8 py-5">
         <View className="flex flex-row justify-between mx-4">

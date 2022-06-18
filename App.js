@@ -1,6 +1,61 @@
-import WindowInfo from "./components/infoWindow_uper";
-import Eventpage from "./components/event_page";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TailwindProvider } from "tailwindcss-react-native";
+import Icon from "react-native-ico";
+import Start from "./components/Start";
+import Home from "./components/Home";
+import Place from "./components/Place";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return <Eventpage />;
+  return (
+    <TailwindProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Details"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Start"
+            component={Start}
+          />
+          <Stack.Screen
+            options={{
+              headerBackVisible: true,
+              headerShown: true,
+            }}
+            name="Place"
+            component={Place}
+          />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: "Home",
+              headerStyle: {
+                backgroundColor: "blue",
+              },
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+              headerRight: () => (
+                <Icon
+                  name="searching-magnifying-glass"
+                  group="material-design"
+                  onPress={() => alert("This is a button!")}
+                  title="Search"
+                  color="#fff"
+                />
+              ),
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TailwindProvider>
+  );
 }

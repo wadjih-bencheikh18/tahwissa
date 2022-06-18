@@ -1,0 +1,9 @@
+node_modules/
+.eslintrc.js
+metro.config.js
+tailwind.config.js
+apps/
+android/
+.vscode/
+.expo/
+.idea/

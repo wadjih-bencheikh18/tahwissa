@@ -1,8 +1,13 @@
-/* eslint-disable no-undef */
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import PhotosPlace from "./PhotosPlace";
 import { useState } from "react";
 import AvisPlace from "./AvisPlace";
+import star from "../images/star.png";
+import adress from "../images/adress.png";
+import pic from "../images/pic.png";
+import time from "../images/time.png";
+import arrowD from "../images/arrowDOWN.png";
+import arrowU from "../images/arrowUP.png";
 const content = ["Photos", "Description", "Évènements", "Avis"];
 const views = [
   <PhotosPlace key="0" />,
@@ -33,7 +38,7 @@ export default function Place() {
         <View className="mx-2" style={styles.infobloc}>
           <Text style={styles.title}>Monument des Martyrs</Text>
           <View style={styles.itembloc}>
-            <Image source={require("../images/pic.png")} />
+            <Image source={pic} />
             <Text style={styles.subTitle1}>Monument national - historique</Text>
             <View elevation={5} style={styles.button}>
               <Text
@@ -52,27 +57,18 @@ export default function Place() {
             }}
           >
             <View style={styles.item}>
-              <Image
-                style={{ marginRight: 5 }}
-                source={require("../images/adress.png")}
-              />
+              <Image style={{ marginRight: 5 }} source={adress} />
               <Text style={styles.subTitle}>El Madania, Algiers</Text>
             </View>
             <View style={styles.item}>
-              <Image
-                style={{ marginRight: 5 }}
-                source={require("../images/star.png")}
-              />
+              <Image style={{ marginRight: 5 }} source={star} />
               <Text style={styles.subTitle2}>4.5</Text>
             </View>
           </View>
           <Pressable onPress={() => setIsShown((isShown) => !isShown)}>
             <View style={styles.horaire}>
               <View style={styles.item}>
-                <Image
-                  style={{ marginRight: 5 }}
-                  source={require("../images/time.png")}
-                />
+                <Image style={{ marginRight: 5 }} source={time} />
                 {!isShown && <HoraireJour />}
                 {isShown && (
                   <Text
@@ -87,16 +83,10 @@ export default function Place() {
                 )}
               </View>
               {!isShown && (
-                <Image
-                  style={{ width: 12, height: 7 }}
-                  source={require("../images/arrowDOWN.png")}
-                />
+                <Image style={{ width: 12, height: 7 }} source={arrowD} />
               )}
               {isShown && (
-                <Image
-                  style={{ width: 12, height: 7 }}
-                  source={require("../images/arrowUP.png")}
-                />
+                <Image style={{ width: 12, height: 7 }} source={arrowU} />
               )}
             </View>
           </Pressable>

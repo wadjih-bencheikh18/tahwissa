@@ -1,32 +1,29 @@
 import React from "react";
-import { Image, ScrollView, View, Text, StyleSheet } from "react-native";
-
+import { Image, View, Text, StyleSheet, Pressable } from "react-native";
+import time from "../images/time.png";
+import adress from "../images/adress.png";
 const Event = (props) => {
   return (
-    <View style={{ borderBottomWidth: 1, borderBottomColor: "#8168DD" }}>
-      <View style={styles.infobloc}>
-        <View>
-          <Text style={styles.title}>{props.title}</Text>
-          <View style={styles.eventinfo}>
-            <View style={styles.adress}>
-              <Image
-                style={{ marginRight: 5 }}
-                source={require("../images/adress.png")}
-              />
-              <Text style={styles.subtitle}>{props.adress}</Text>
-            </View>
-            <View style={styles.time}>
-              <Image
-                style={{ marginRight: 5 }}
-                source={require("../images/time.png")}
-              />
-              <Text style={styles.subtitle}>{props.time}</Text>
+    <Pressable onPress={props.onPress}>
+      <View style={{ borderBottomWidth: 1, borderBottomColor: "#8168DD" }}>
+        <View style={styles.infobloc}>
+          <View>
+            <Text style={styles.title}>{props.title}</Text>
+            <View style={styles.eventinfo}>
+              <View style={styles.adress}>
+                <Image style={{ marginRight: 5 }} source={adress} />
+                <Text style={styles.subtitle}>{props.adress}</Text>
+              </View>
+              <View style={styles.time}>
+                <Image style={{ marginRight: 5 }} source={time} />
+                <Text style={styles.subtitle}>{props.time}</Text>
+              </View>
             </View>
           </View>
+          <Text style={styles.date}>{props.date}</Text>
         </View>
-        <Text style={styles.date}>{props.date}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 const styles = StyleSheet.create({

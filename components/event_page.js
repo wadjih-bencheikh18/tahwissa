@@ -1,13 +1,10 @@
 import React from "react";
 import { Image, ScrollView, View, Text, StyleSheet } from "react-native";
 import Event from "./event";
-import { useFonts } from "expo-font";
-
-function Eventpage() {
-  const [loaded] = useFonts({
-    Sen: require("./font/Sen-Regular.ttf"),
-  });
-
+import filtre from "../images/filtre.png";
+import search from "../images/Vector.png";
+import pdp from "../images/PDP.png";
+function Eventpage({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -19,12 +16,12 @@ function Eventpage() {
         <View style={styles.header}>
           <Text style={styles.sectionTitle}>Évènements</Text>
           <View style={styles.icons}>
-            <Image source={require("../images/Vector.png")} />
+            <Image style={{ width: 21, height: 21 }} source={search} />
             <Image
-              style={{ marginHorizontal: 18 }}
-              source={require("../images/filtre.png")}
+              style={{ marginHorizontal: 18, width: 21, height: 21 }}
+              source={filtre}
             />
-            <Image source={require("../images/Group.png")} />
+            <Image style={{ width: 30, height: 30 }} source={pdp} />
           </View>
         </View>
         <View
@@ -42,18 +39,21 @@ function Eventpage() {
         </View>
         <View>
           <Event
+            onPress={() => navigation.navigate("Place")}
             title="10 jours avant le bac"
             adress="El Moradia Alger"
             time="1 jour"
             date="2 juin 2022"
           />
           <Event
+            onPress={() => navigation.navigate("Place")}
             title="Match Algerie-Cameroun"
             adress="5 juillet"
             time="19 jour"
             date="21 juin 2022"
           />
           <Event
+            onPress={() => navigation.navigate("Place")}
             title="Jeux méditerranéens"
             adress="Oran"
             time="20 jours"

@@ -22,10 +22,21 @@ export default function AvisPlace() {
   ]);
   const [comment, setComment] = useState("");
   const [rate, setRate] = useState(0);
-  const [star, setStar] = useState([
-    { type: "feather", opac: 0.4 },
-    { type: "FontAwesome", opac: 0.9 },
-  ]);
+  const strType = [
+    { type: "feather", opacity: 0.4 },
+    { type: "FontAwesome", opacity: 0.9 },
+  ];
+  const Star = ({ onPress, on }) => (
+    <Pressable onPress={onPress}>
+      <Icon
+        name="star"
+        type={strType[on ? 1 : 0].type}
+        size={20}
+        color="rgb(129,104,221)"
+        style={{ opacity: strType[on ? 1 : 0].opacity }}
+      />
+    </Pressable>
+  );
 
   return (
     <View className="h-full">
@@ -71,71 +82,21 @@ export default function AvisPlace() {
         <View className="flex flex-row justify-between mx-4">
           <Text className="text-gray-500">Donner une note:</Text>
           <View className="flex flex-row space-x-3">
-            <Pressable
-              onPress={() => {
-                setRate(1);
-              }}
-            >
-              <Icon
-                name="star"
-                type="FontAwesome"
-                size={20}
-                color="rgb(129,104,221)"
-                style={{ opacity: 0.9 }}
-              />
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setRate(2);
-              }}
-            >
-              <Icon
-                name="star"
-                type="feather"
-                size={20}
-                color="rgb(129,104,221)"
-                style={{ opacity: 0.4 }}
-              />
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setRate(1);
-              }}
-            >
-              <Icon
-                name="star"
-                type="feather"
-                size={20}
-                color="rgb(129,104,221)"
-                style={{ opacity: 0.4 }}
-              />
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setRate(1);
-              }}
-            >
-              <Icon
-                name="star"
-                type="feather"
-                size={20}
-                color="rgb(129,104,221)"
-                style={{ opacity: 0.4 }}
-              />
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setRate(1);
-              }}
-            >
-              <Icon
-                name="star"
-                type="feather"
-                size={20}
-                color="rgb(129,104,221)"
-                style={{ opacity: 0.4 }}
-              />
-            </Pressable>
+            <View>
+              <Star onPress={() => setRate(1)} on={rate > 0} />
+            </View>
+            <View>
+              <Star onPress={() => setRate(2)} on={rate > 1} />
+            </View>
+            <View>
+              <Star onPress={() => setRate(3)} on={rate > 2} />
+            </View>
+            <View>
+              <Star onPress={() => setRate(4)} on={rate > 3} />
+            </View>
+            <View>
+              <Star onPress={() => setRate(5)} on={rate > 4} />
+            </View>
           </View>
         </View>
         {/* new comment view */}
@@ -149,16 +110,20 @@ export default function AvisPlace() {
           <Pressable
             onPress={() => {
               setComment(comment);
-              setComments((comments) => [
-                ...comments,
-                {
-                  user: "Unkown",
-                  date: "A l'instant",
-                  text: comment,
-                  like: 0,
-                  dislike: 0,
-                },
-              ]);
+              {
+                comment
+                  ? setComments((comments) => [
+                      ...comments,
+                      {
+                        user: "Unknown",
+                        date: "A l'instant",
+                        text: comment,
+                        like: 0,
+                        dislike: 0,
+                      },
+                    ])
+                  : null;
+              }
               setComment("");
             }}
           >

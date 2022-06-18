@@ -1,6 +1,6 @@
 import Start from "./Start";
 import Map from "./Map";
-import { Image } from "react-native";
+import { Image, Text, TextInput, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-ico";
 import MAPB from "../images/MAPB.png";
@@ -9,6 +9,7 @@ import VRB from "../images/VRB.png";
 import VRP from "../images/VRP.png";
 import ITB from "../images/ITB.png";
 import ITP from "../images/ITP.png";
+import PDP from "../images/PDP.png";
 
 const Tab = createBottomTabNavigator();
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
                 name="power-connection-indicator"
                 group="material-design"
                 color={color}
+                size={size}
               />
             );
           } else if (route.name === "Explorer") {
@@ -48,7 +50,8 @@ export default function Home() {
         tabBarStyle: {
           paddingBottom: 10,
           height: 60,
-          borderRadius: 100,
+          borderTopEndRadius: 20,
+          borderTopLeftRadius: 20,
           backgroundColor: "#8168DD",
           position: "absolute",
           paddingLeft: 4,
@@ -56,7 +59,19 @@ export default function Home() {
         },
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "white",
-        headerShown: false,
+        header: () => (
+          <View className="bg-white mx-[5%] h-14 flex justify-between shadow-xl flex-row items-center px-10 w-[90%] border-3 rounded-[100px] mt-14 absolute">
+            <TextInput
+              placeholder="Rechercher ou filter..."
+              className=" -ml-5 w-[97%] caret-red-500"
+            ></TextInput>
+            <Image
+              className="ml-4"
+              source={PDP}
+              style={{ width: 40, height: 40 }}
+            />
+          </View>
+        ),
       })}
     >
       <Tab.Screen name="Explorer" component={Map} />

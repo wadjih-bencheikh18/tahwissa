@@ -4,15 +4,17 @@ import Icon from "react-native-ico";
 // import alg from "./algeria.json";
 import alger from "./alger.json";
 import tamanrasset from "./tamanrasset.json";
+import { View } from "react-native";
 const algeria = {
   latitude: 28.0339,
   longitude: 1.6596,
   latitudeDelta: 0,
   longitudeDelta: 20,
 };
-export default function Map() {
+export default function Map({ navigation }) {
   return (
     <MapView
+      tabIndex={0}
       followUserLocation={true}
       initialRegion={algeria}
       showsUserLocation={true}
@@ -21,15 +23,12 @@ export default function Map() {
         height: "100%",
       }}
       zoomEnabled={true}
-      on
     >
       <Marker
         coordinate={{
           latitude: 36.7538,
           longitude: 3.0588,
         }}
-        title="test"
-        description="tttt"
         pinColor="#342861"
       >
         <Icon

@@ -1,17 +1,15 @@
 import MapView, { Marker, Geojson } from "react-native-maps";
-import { useState } from "react";
 import Icon from "react-native-ico";
 // import alg from "./algeria.json";
 import alger from "./alger.json";
 import tamanrasset from "./tamanrasset.json";
-import { View } from "react-native";
 const algeria = {
   latitude: 28.0339,
   longitude: 1.6596,
   latitudeDelta: 0,
   longitudeDelta: 20,
 };
-export default function Map({ navigation }) {
+export default function Map() {
   return (
     <MapView
       tabIndex={0}

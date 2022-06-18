@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  Button,
-  Image,
-  TouchableNativeFeedback,
-} from "react-native";
+import { View, Text, Image, TouchableNativeFeedback } from "react-native";
 import Logo from "../images/logo.png";
 export default function Start({ navigation }) {
   return (

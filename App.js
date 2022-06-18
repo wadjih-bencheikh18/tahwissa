@@ -4,13 +4,16 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import Icon from "react-native-ico";
 import Start from "./components/Start";
 import Home from "./components/Home";
+import PhotosPlace from "./components/PhotosPlace";
+import AvisPlace from "./components/AvisPlace";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <TailwindProvider>
-      <NavigationContainer>
+      <AvisPlace />
+      {/* <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Details"
           screenOptions={{
@@ -46,7 +49,7 @@ export default function App() {
             }}
           />
         </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
     </TailwindProvider>
   );
 }

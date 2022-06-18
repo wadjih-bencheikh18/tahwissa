@@ -11,7 +11,7 @@ const views = [
 
   <AvisPlace key="3" />,
 ];
-export default function Event() {
+export default function Place() {
   const [view, setView] = useState(0);
   return (
     <View className="h-full">

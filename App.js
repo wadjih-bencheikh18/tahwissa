@@ -4,7 +4,7 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import Icon from "react-native-ico";
 import Start from "./components/Start";
 import Home from "./components/Home";
-import Event from "./components/Event";
+import Place from "./components/Place";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +29,7 @@ export default function App() {
               headerShown: true,
             }}
             name="Place"
-            component={Event}
+            component={Place}
           />
           <Stack.Screen
             name="Home"

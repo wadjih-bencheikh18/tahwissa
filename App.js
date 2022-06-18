@@ -1,27 +1,24 @@
+/* eslint-disable no-undef */
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  Pressable,
-  Button,
-  Image,
-  ScrollView,
-  View,
-  Text,
-  StyleSheet,
-  ProgressBarAndroidComponent,
-} from "react-native";
+import { Pressable, Image, View } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import Icon from "react-native-ico";
 import Start from "./components/Start";
 import Home from "./components/Home";
 import Place from "./components/Place";
 import { useFonts } from "expo-font";
-
+import MyAccountScreen from "./components/MyAccountScreen";
+import MyConnectedAccount from "./components/MyConnectedAccount";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   useFonts({
     Sen: require("./font/Sen-Regular.ttf"),
+    SenEB: require("./font/Sen-ExtraBold.ttf"),
+    SenB: require("./font/Sen-Bold.ttf"),
   });
   return (
     <TailwindProvider>
@@ -36,6 +33,26 @@ export default function App() {
             options={{ headerShown: false }}
             name="Start"
             component={Start}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="MyAccountScreen"
+            component={MyAccountScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="SignIn"
+            component={SignIn}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="SignUp"
+            component={SignUp}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="MyConnectedAccount"
+            component={MyConnectedAccount}
           />
           <Stack.Screen
             options={{

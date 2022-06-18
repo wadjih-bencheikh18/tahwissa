@@ -1,6 +1,6 @@
 import Start from "./Start";
 import Map from "./Map";
-import { Image, TextInput, View } from "react-native";
+import { Image, Pressable, TextInput, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-ico";
 import MAPB from "../images/MAPB.png";
@@ -13,7 +13,7 @@ import PDP from "../images/PDP.png";
 import Eventpage from "./event_page";
 
 const Tab = createBottomTabNavigator();
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -66,11 +66,13 @@ export default function Home() {
               placeholder="Rechercher ou filter..."
               className=" -ml-5 w-[97%] caret-red-500"
             ></TextInput>
-            <Image
-              className="ml-4"
-              source={PDP}
-              style={{ width: 40, height: 40 }}
-            />
+            <Pressable onPress={() => navigation.navigate("MyAccountScreen")}>
+              <Image
+                className="ml-4"
+                source={PDP}
+                style={{ width: 40, height: 40 }}
+              />
+            </Pressable>
           </View>
         ),
       })}

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Image, ScrollView } from "react-native";
 import mkm2 from "../images/makam2.png";
 import mkm3 from "../images/makam3.png";
 
@@ -7,9 +7,6 @@ export default function PhotosEvent() {
   const pics = [mkm2, mkm3];
   return (
     <View className="h-full">
-      <Text className="p-20 border-b">Description kda kda...</Text>
-
-      {/* scrollzone */}
       <ScrollView className="px-4">
         {/* pics */}
         <View className="pb-8">

@@ -14,10 +14,6 @@ export default function AvisPlace() {
 
   return (
     <View className="h-full">
-      <Text className="p-20 border-b border-violet-400">
-        Description kda kda...
-      </Text>
-      {/* comments */}
       <ScrollView className="mx-4">
         <View className="bg-violet-50 mx-2 rounded-xl mt-4 px-5 py-3">
           <View className="flex flex-row items-center justify-between pb-2">

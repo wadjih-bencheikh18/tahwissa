@@ -5,7 +5,15 @@ import adress from "../images/adress.png";
 const Event = (props) => {
   return (
     <Pressable onPress={props.onPress}>
-      <View style={{ borderBottomWidth: 1, borderBottomColor: "#8168DD" }}>
+      <View
+        className={props.className}
+        style={{
+          borderBottomWidth: 1,
+          marginLeft: 12,
+          marginRight: 12,
+          borderBottomColor: "#8168DD",
+        }}
+      >
         <View style={styles.infobloc}>
           <View>
             <Text style={styles.title}>{props.title}</Text>

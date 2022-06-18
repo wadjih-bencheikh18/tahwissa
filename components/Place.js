@@ -8,16 +8,33 @@ import pic from "../images/pic.png";
 import time from "../images/time.png";
 import arrowD from "../images/arrowDOWN.png";
 import arrowU from "../images/arrowUP.png";
+import Event from "./event";
 const content = ["Photos", "Description", "Évènements", "Avis"];
-const views = [
-  <PhotosPlace key="0" />,
-  <AvisPlace key="1" />,
 
-  <PhotosPlace key="2" />,
+export default function Place({ navigation }) {
+  const views = [
+    <PhotosPlace key="0" />,
+    <Text className="mx-4 mt-3" key="1">
+      Le mémorial du Martyr est la place parfaite pour faire des célébrations
+      avant le BAC Le mémorial du Martyr, sanctuaire du Martyr ou Maqam Echahid
+      est un monument aux morts surplombant la ville d'Alger, érigé en 1982 à
+      l'occasion du 20e anniversaire de l'indépendance de l'Algérie (5 juillet
+      1962), en mémoire des chahids, les combattants de la guerre d'indépendance
+      algérienne morts pour la libération du pays.
+    </Text>,
 
-  <AvisPlace key="3" />,
-];
-export default function Place() {
+    <Event
+      key="2"
+      className="mx-5"
+      onPress={() => navigation.navigate("Place")}
+      title="10 jours avant le bac"
+      adress="El Moradia Alger"
+      time="1 jour"
+      date="2 juin 2022"
+    />,
+
+    <AvisPlace key="3" />,
+  ];
   const [isShown, setIsShown] = useState(false);
   const [view, setView] = useState(0);
   return (

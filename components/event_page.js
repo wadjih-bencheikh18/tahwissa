@@ -13,7 +13,7 @@ function Eventpage({ navigation }) {
         }}
         keyboardShouldPersistTaps="handled"
       >
-        <View style={styles.header}>
+        <View className="mx-5" style={styles.header}>
           <Text style={styles.sectionTitle}>Évènements</Text>
           <View style={styles.icons}>
             <Image style={{ width: 21, height: 21 }} source={search} />
@@ -25,6 +25,7 @@ function Eventpage({ navigation }) {
           </View>
         </View>
         <View
+          className="px-5"
           style={{
             borderBottomWidth: 1,
             borderBottomColor: "#00000050",
@@ -32,9 +33,15 @@ function Eventpage({ navigation }) {
           }}
         >
           <View style={styles.subT}>
-            <Text style={styles.subTitleselected}>Tout</Text>
-            <Text style={styles.subTitle}>Proche de moi</Text>
-            <Text style={styles.subTitle}>Plus enticipé</Text>
+            <Text className="w-10 text-center" style={styles.subTitleselected}>
+              Tout
+            </Text>
+            <Text className="w-30 text-center" style={styles.subTitle}>
+              Proche de moi
+            </Text>
+            <Text className="w-30 text-center" style={styles.subTitle}>
+              Plus enticipé
+            </Text>
           </View>
         </View>
         <View>
@@ -67,7 +74,8 @@ function Eventpage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     marginTop: 32,
-    padding: 25,
+    paddingTop: 25,
+    paddingBottom: 25,
     flex: 1,
     backgroundColor: "#FFFFFF",
   },

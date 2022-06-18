@@ -28,7 +28,7 @@ export default function Map({ navigation }) {
           longitude: 3.0588,
         }}
         pinColor="#342861"
-        onPress={() => navigation.navigate("PhotosPlace")}
+        onPress={() => navigation.navigate("Place")}
       >
         <Icon
           name="map-marker"

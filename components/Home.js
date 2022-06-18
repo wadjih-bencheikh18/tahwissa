@@ -10,6 +10,7 @@ import VRP from "../images/VRP.png";
 import ITB from "../images/ITB.png";
 import ITP from "../images/ITP.png";
 import PDP from "../images/PDP.png";
+import Eventpage from "./event_page";
 
 const Tab = createBottomTabNavigator();
 export default function Home() {
@@ -77,8 +78,8 @@ export default function Home() {
       <Tab.Screen name="Explorer" component={Map} />
       <Tab.Screen
         name="Évènements"
-        component={Start}
-        options={{ tabBarBadge: 3 }}
+        component={Eventpage}
+        options={{ tabBarBadge: 3, headerShown: false }}
       />
       <Tab.Screen name="Itinéraires" component={Start} />
       <Tab.Screen name="Visites en ligne" component={Start} />

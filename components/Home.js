@@ -36,9 +36,13 @@ export default function Home() {
               return <Image source={ITB} style={{ width: 24, height: 24 }} />;
           } else if (route.name === "Visites en ligne") {
             if (focused)
-              return <Image source={VRP} style={{ width: 36, height: 20.7 }} />;
+              return (
+                <Image source={VRP} style={{ width: 32.5, height: 18.7 }} />
+              );
             else
-              return <Image source={VRB} style={{ width: 36, height: 20.7 }} />;
+              return (
+                <Image source={VRB} style={{ width: 32.5, height: 18.7 }} />
+              );
           }
         },
         tabBarStyle: {

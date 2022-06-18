@@ -11,12 +11,9 @@ const algeria = {
   longitudeDelta: 20,
 };
 export default function Map() {
-  const [data, setData] = useState({ region: algeria });
-
   return (
     <MapView
       followUserLocation={true}
-      region={data.region}
       initialRegion={algeria}
       showsUserLocation={true}
       style={{
@@ -41,17 +38,11 @@ export default function Map() {
           style={{ width: 30, height: 30 }}
         />
       </Marker>
-      <Geojson
-        geojson={alger}
-        strokeColor="#8168DD"
-        fillColor="#8168DD"
-        strokeWidth={2}
-      />
+      <Geojson geojson={alger} strokeColor="#8168DD" fillColor="#8168DD" />
       <Geojson
         geojson={tamanrasset}
-        fillColor="#8168DD"
         strokeColor="#8168DD"
-        strokeWidth={2}
+        fillColor="#8168DD"
       />
     </MapView>
   );

@@ -24,7 +24,10 @@ export default function App() {
             component={Start}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{
+              headerBackVisible: true,
+              headerShown: true,
+            }}
             name="Place"
             component={Event}
           />

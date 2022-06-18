@@ -33,7 +33,7 @@ export default function AvisPlace() {
         {comments.map((comment, key) => (
           <View
             key={key}
-            className="bg-violet-50 mx-2 rounded-xl mt-4 px-5 py-3"
+            className="bg-violet-50 mx-2 rounded-xl my-2 px-5 py-3"
           >
             <View className="flex flex-row items-center justify-between pb-2">
               <Text className="text-base">{comment.user}</Text>

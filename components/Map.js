@@ -9,7 +9,7 @@ const algeria = {
   latitudeDelta: 0,
   longitudeDelta: 21,
 };
-export default function Map() {
+export default function Map({ navigation }) {
   return (
     <MapView
       tabIndex={0}
@@ -28,6 +28,7 @@ export default function Map() {
           longitude: 3.0588,
         }}
         pinColor="#342861"
+        onPress={() => navigation.navigate("PhotosPlace")}
       >
         <Icon
           name="map-marker"

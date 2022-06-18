@@ -29,10 +29,6 @@ export default function AvisPlace() {
 
   return (
     <View className="h-full">
-      <Text className="p-20 border-b border-violet-400">
-        Description kda kda...
-      </Text>
-      {/* comments */}
       <ScrollView className="mx-4">
         {comments.map((comment, key) => (
           <View

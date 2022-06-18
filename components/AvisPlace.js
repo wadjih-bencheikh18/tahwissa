@@ -21,8 +21,9 @@ export default function AvisPlace() {
     },
   ]);
   const [comment, setComment] = useState("");
+  const [thumb, setThumb] = useState("");
   const [rate, setRate] = useState(0);
-  const strType = [
+  const sType = [
     { type: "feather", opacity: 0.4 },
     { type: "FontAwesome", opacity: 0.9 },
   ];
@@ -30,10 +31,10 @@ export default function AvisPlace() {
     <Pressable onPress={onPress}>
       <Icon
         name="star"
-        type={strType[on ? 1 : 0].type}
+        type={sType[on ? 1 : 0].type}
         size={20}
         color="rgb(129,104,221)"
-        style={{ opacity: strType[on ? 1 : 0].opacity }}
+        style={{ opacity: sType[on ? 1 : 0].opacity }}
       />
     </Pressable>
   );
@@ -56,22 +57,34 @@ export default function AvisPlace() {
             {/* icons */}
             <View className="flex flex-row space-x-8">
               <View className="flex flex-row items-end gap-x-1 pt-4">
-                <Icon
-                  name="thumbs-up"
-                  type="feather"
-                  size={20}
-                  color="rgb(107, 114, 128)"
-                />
+                <Pressable
+                  onPress={() =>
+                    setComments((comments) => {
+                      comments[key].like++;
+                      alert(comments[key].like);
+                      return comments;
+                    })
+                  }
+                >
+                  <Icon
+                    name="thumb-up-off-alt"
+                    type="MaterialIcons"
+                    size={20}
+                    color="rgb(107, 114, 128)"
+                  />
+                </Pressable>
                 <Text className="text-gray-500">{comment.like}</Text>
               </View>
               <View className="flex flex-row items-end gap-x-1 pt-4">
-                <Icon
-                  name="thumbs-down"
-                  type="feather"
-                  size={20}
-                  color="rgb(107, 114, 128)"
-                  style={{ transform: [{ scaleX: -1 }] }}
-                />
+                <Pressable>
+                  <Icon
+                    name="thumb-down-off-alt"
+                    type="MaterialIcons"
+                    size={20}
+                    color="rgb(107, 114, 128)"
+                    style={{ transform: [{ scaleX: -1 }] }}
+                  />
+                </Pressable>
                 <Text className="text-gray-500">{comment.dislike}</Text>
               </View>
             </View>

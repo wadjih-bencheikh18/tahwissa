@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import Eventpage from "./evenements/event_page";
 import { View, Text, PermissionsAndroid } from "react-native";
 import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import WindowInfo from "./evenements/infoWindow_uper";
 import Geolocation from "react-native-geolocation-service";
 const algeria = {
   latitude: 28.0339,
@@ -11,6 +13,7 @@ const algeria = {
   longitudeDelta: 20,
 };
 function HomeScreen() {
+
   const [data, setData] = useState({ region: algeria });
   // const mapView = useRef(null);
   // async function getCurrentLocation() {
@@ -88,10 +91,6 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Map" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <WindowInfo/>
   );
 }

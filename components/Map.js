@@ -23,27 +23,82 @@ export default function Map({ navigation }) {
         height: "100%",
       }}
       zoomEnabled={true}
+      maxZoomLevel={22}
       onRegionChangeComplete={(region) => {
-        if (geo && region.longitudeDelta < 2) {
+        if (geo && region.longitudeDelta < 1.5) {
           setRegion(region);
           setGeo(false);
-        } else if (!geo && region.longitudeDelta > 2) {
+        } else if (!geo && region.longitudeDelta > 1.5) {
           setRegion(region);
           setGeo(true);
         }
       }}
+      onDoublePress={() => setRegion(algeria)}
     >
       <Marker
         coordinate={{
           latitude: 36.7538,
           longitude: 3.0588,
         }}
-        pinColor="#342861"
         onPress={() => navigation.navigate("Place")}
       >
-        {}
-        <Icon name="map-marker" group="font-awesome" width="30" height="30" />
+        <Icon
+          name="map-marker"
+          group="font-awesome"
+          width="30"
+          height="30"
+          color="#342861"
+        />
       </Marker>
+      <Marker
+        coordinate={{
+          latitude: 22.7903,
+          longitude: 5.5193,
+        }}
+        onPress={() => navigation.navigate("Place")}
+      >
+        <Icon
+          name="map-marker"
+          group="font-awesome"
+          width="30"
+          height="30"
+          color="#342861"
+        />
+      </Marker>
+      {!geo && (
+        <>
+          <Marker
+            coordinate={{
+              latitude: 36.7338,
+              longitude: 3.0188,
+            }}
+            onPress={() => navigation.navigate("Place")}
+          >
+            <Icon
+              name="map-marker"
+              group="font-awesome"
+              width="30"
+              height="30"
+              color="#342861"
+            />
+          </Marker>
+          <Marker
+            coordinate={{
+              latitude: 36.7938,
+              longitude: 3.0188,
+            }}
+            onPress={() => navigation.navigate("Place")}
+          >
+            <Icon
+              name="map-marker"
+              group="font-awesome"
+              width="30"
+              height="30"
+              color="#342861"
+            />
+          </Marker>
+        </>
+      )}
       <Geojson
         geojson={alger}
         strokeColor="#8168DD"

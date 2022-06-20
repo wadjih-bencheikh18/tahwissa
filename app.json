@@ -4,13 +4,14 @@
     "slug": "tahwissa",
     "version": "1.0.0",
     "sdkVersion": "45.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
+    "ios": {
+      "bundleIdentifier": "com.codex.tahwissa",
+      "buildNumber": "1.0.0"
+    },
     "android": {
-      "package": "host.exp.exponent"
+      "package": "com.codex.tahwissa",
+      "versionCode": 1
     }
   }
 }

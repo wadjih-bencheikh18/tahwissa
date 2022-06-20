@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, ScrollView, View, Text, StyleSheet } from "react-native";
+import {
+  Image,
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+} from "react-native";
 import Event from "./event";
 import filtre from "../images/filtre.png";
 import search from "../images/Vector.png";
@@ -16,11 +23,16 @@ function Eventpage({ navigation }) {
         <View className="mx-5" style={styles.header}>
           <Text style={styles.sectionTitle}>Évènements</Text>
           <View style={styles.icons}>
-            <Image style={{ width: 21, height: 21 }} source={search} />
-            <Image
-              style={{ marginHorizontal: 18, width: 21, height: 21 }}
-              source={filtre}
-            />
+            <Pressable onPress={() => navigation.navigate("Recherche")}>
+              <Image style={{ width: 21, height: 21 }} source={search} />
+            </Pressable>
+
+            <Pressable onPress={() => navigation.navigate("Filtre")}>
+              <Image
+                style={{ marginHorizontal: 18, width: 21, height: 21 }}
+                source={filtre}
+              />
+            </Pressable>
             <Image style={{ width: 30, height: 30 }} source={pdp} />
           </View>
         </View>

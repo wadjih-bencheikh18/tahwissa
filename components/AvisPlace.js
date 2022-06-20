@@ -10,18 +10,17 @@ export default function AvisPlace() {
       date: "Il y a 2 mois",
       text: "C'est l'endroit parfait pour les sorties en famille ! Je recommande.",
       like: 5,
-      dislike: 0,
+      dislike: 1,
     },
     {
       user: "Serina",
-      date: "A l'instant",
+      date: "Il y a 3 jours",
       text: "Je suis d'accord avec Mme Batenjal",
-      like: 0,
+      like: 1,
       dislike: 0,
     },
   ]);
   const [comment, setComment] = useState("");
-  // const [thumb, setThumb] = useState("");
   const [rate, setRate] = useState(0);
   const sType = [
     { type: "feather", opacity: 0.4 },
@@ -57,15 +56,7 @@ export default function AvisPlace() {
             {/* icons */}
             <View className="flex flex-row space-x-8">
               <View className="flex flex-row items-end gap-x-1 pt-4">
-                <Pressable
-                // onPress={() =>
-                //   setComments((comments) => {
-                //     comments[key].like++;
-                //     alert(comments[key].like);
-                //     return comments;
-                //   })
-                // }
-                >
+                <Pressable>
                   <Icon
                     name="thumb-up-off-alt"
                     type="MaterialIcons"
@@ -128,7 +119,7 @@ export default function AvisPlace() {
                   ? setComments((comments) => [
                       ...comments,
                       {
-                        user: "Unknown",
+                        user: "CodEx",
                         date: "A l'instant",
                         text: comment,
                         like: 0,

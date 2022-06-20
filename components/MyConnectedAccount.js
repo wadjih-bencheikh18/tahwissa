@@ -26,7 +26,7 @@ function MyConnectedAccount({ navigation }) {
       {/*the header*/}
       <SafeAreaView>
         <View style={styles.headerWrapper}>
-          <Pressable onPress={() => navigation.goBack()}>
+          <Pressable onPress={() => navigation.navigate("Home")}>
             <AntDesign name="back" size={22} color={colors.icon} />
           </Pressable>
           <Text style={styles.headerTitle}>Mon compte</Text>

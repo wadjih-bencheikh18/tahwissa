@@ -2,16 +2,12 @@ import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import PhotosPlace from "./PhotosPlace";
 import { useState } from "react";
 import AvisPlace from "./AvisPlace";
-import star from "../images/star.png";
 import adress from "../images/adress.png";
 import pic from "../images/pic.png";
 import time from "../images/time.png";
-import arrowD from "../images/arrowDOWN.png";
-import arrowU from "../images/arrowUP.png";
-import Event from "./event";
-const content = ["Photos", "Description", "Évènements", "Avis"];
+const content = ["Photos", "Description", "Avis"];
 
-export default function Place({ navigation }) {
+export default function PlaceE() {
   const views = [
     <PhotosPlace key="0" />,
     <Text className="mx-4 mt-3" key="1">
@@ -23,19 +19,8 @@ export default function Place({ navigation }) {
       algérienne morts pour la libération du pays.
     </Text>,
 
-    <Event
-      key="2"
-      className="mx-5"
-      onPress={() => navigation.navigate("PlaceE")}
-      title="10 jours avant le bac"
-      adress="El Moradia Alger"
-      time="1 jour"
-      date="2 juin 2022"
-    />,
-
     <AvisPlace key="3" />,
   ];
-  const [isShown, setIsShown] = useState(false);
   const [view, setView] = useState(0);
   return (
     <View className="h-full bg-white">
@@ -53,15 +38,15 @@ export default function Place({ navigation }) {
         className="min-h-[25%] flex justify-between border-b border-violet-400"
       >
         <View className="mx-2" style={styles.infobloc}>
-          <Text style={styles.title}>Monument des Martyrs</Text>
+          <Text style={styles.title}>10 jours avant le BAC</Text>
           <View style={styles.itembloc}>
             <Image source={pic} />
-            <Text style={styles.subTitle1}>Monument national - historique</Text>
+            <Text style={styles.subTitle1}>Evénement - divertissant </Text>
             <View elevation={5} style={styles.button}>
               <Text
                 style={{ fontSize: 12, color: "#FFFFFF", fontFamily: "Sen" }}
               >
-                Directions
+                Définir un rappel
               </Text>
             </View>
           </View>
@@ -77,37 +62,13 @@ export default function Place({ navigation }) {
               <Image style={{ marginRight: 5 }} source={adress} />
               <Text style={styles.subTitle}>El Madania, Algiers</Text>
             </View>
+          </View>
+          <View style={styles.horaire}>
             <View style={styles.item}>
-              <Image style={{ marginRight: 5 }} source={star} />
-              <Text style={styles.subTitle2}>4.5</Text>
+              <Image style={{ marginRight: 5 }} source={time} />
+              <HoraireJour />
             </View>
           </View>
-          <Pressable onPress={() => setIsShown((isShown) => !isShown)}>
-            <View style={styles.horaire}>
-              <View style={styles.item}>
-                <Image style={{ marginRight: 5 }} source={time} />
-                {!isShown && <HoraireJour />}
-                {isShown && (
-                  <Text
-                    style={{
-                      fontSize: 12,
-                      color: "#000000",
-                      fontFamily: "Sen",
-                    }}
-                  >
-                    Les horaires d'ouverture
-                  </Text>
-                )}
-              </View>
-              {!isShown && (
-                <Image style={{ width: 12, height: 7 }} source={arrowD} />
-              )}
-              {isShown && (
-                <Image style={{ width: 12, height: 7 }} source={arrowU} />
-              )}
-            </View>
-          </Pressable>
-          {isShown && <ShowHoraire1 />}
         </View>
         <View className="flex-row justify-around">
           {content.map((c, i) => (
@@ -134,55 +95,9 @@ export default function Place({ navigation }) {
 function HoraireJour() {
   return (
     <View style={styles.icon}>
-      <Text style={styles.rouge10}>Ferme </Text>
-      <Text style={styles.subTitle10}>Aujourd'hui 16:00 - </Text>
-      <Text style={styles.vert10}>Ouvre </Text>
-      <Text style={styles.subTitle10}>Demain 9:00</Text>
-    </View>
-  );
-}
-
-const Horaire = (props) => {
-  return (
-    <View style={styles.heure}>
-      <Text style={styles.vert}>{props.debut}</Text>
-      <Text style={styles.subTitle}> - </Text>
-      <Text style={styles.rouge}>{props.fin}</Text>
-    </View>
-  );
-};
-
-function ShowHoraire1() {
-  return (
-    <View style={{ marginTop: 5 }}>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Aujourd'hui (Lundi)</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Demain (Mardi)</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Mercredi</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Jeudi</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Vendredi</Text>
-        <Horaire style={styles.weekdays} debut="" fin="        " />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Samedi</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
-      <View style={styles.itembloc}>
-        <Text style={styles.weekdays}>Dimanche</Text>
-        <Horaire style={styles.weekdays} debut="9:00" fin="16:00" />
-      </View>
+      <Text style={styles.vert10}>02/06/2022 09:00</Text>
+      <Text style={styles.subTitle10}> - </Text>
+      <Text style={styles.rouge10}>02/06/2022 17:00</Text>
     </View>
   );
 }
@@ -207,7 +122,7 @@ const styles = StyleSheet.create({
   itembloc: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
   daylist: {
     flexDirection: "row",
@@ -233,6 +148,7 @@ const styles = StyleSheet.create({
     fontFamily: "Sen",
     opacity: 0.5,
     maxWidth: "60%",
+    paddingLeft: 5,
   },
   vert: {
     fontSize: 12,
@@ -240,13 +156,13 @@ const styles = StyleSheet.create({
     fontFamily: "Sen",
   },
   rouge10: {
-    fontSize: 10,
+    fontSize: 12,
     color: "#A82424",
     fontFamily: "Sen",
     opacity: 0.5,
   },
   vert10: {
-    fontSize: 10,
+    fontSize: 12,
     color: "#38AC0F",
     fontFamily: "Sen",
     opacity: 0.5,

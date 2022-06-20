@@ -46,21 +46,21 @@ function Eventpage({ navigation }) {
         </View>
         <View>
           <Event
-            onPress={() => navigation.navigate("Place")}
+            onPress={() => navigation.navigate("PlaceE")}
             title="10 jours avant le bac"
             adress="El Moradia Alger"
             time="1 jour"
             date="2 juin 2022"
           />
           <Event
-            onPress={() => navigation.navigate("Place")}
+            onPress={() => navigation.navigate("PlaceE")}
             title="Match Algerie-Cameroun"
             adress="5 juillet"
             time="19 jour"
             date="21 juin 2022"
           />
           <Event
-            onPress={() => navigation.navigate("Place")}
+            onPress={() => navigation.navigate("PlaceE")}
             title="Jeux méditerranéens"
             adress="Oran"
             time="20 jours"

@@ -63,6 +63,7 @@ export default function Home({ navigation }) {
         header: () => (
           <View className="bg-white mx-[5%] h-14 flex justify-between shadow-xl flex-row items-center px-10 w-[90%] border-3 rounded-[100px] mt-14 absolute">
             <TextInput
+              onFocus={() => navigation.navigate("Recherche")}
               placeholder="Rechercher ou filter..."
               className=" -ml-5 w-[97%] caret-red-500"
             ></TextInput>
